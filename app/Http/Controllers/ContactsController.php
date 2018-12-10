@@ -46,7 +46,7 @@ class ContactsController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+        return $contact;
     }
 
     /**
@@ -80,6 +80,7 @@ class ContactsController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+        return $contact;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+// use \App\Http\Controllers\ContactsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,5 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+// prvi primer
+// Route::get('contacts', 'ContactsController@index');
 
-Route::get('contacts', 'ContactsController@index');
+
+Route::resource('contacts',ContactsController::class);
