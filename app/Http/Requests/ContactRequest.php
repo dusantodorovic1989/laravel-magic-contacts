@@ -34,7 +34,7 @@ class ContactRequest extends FormRequest
                 'last_name' => 'required',
                 'email' => 'required|email|unique:contacts,email' .
                     ($contactId ? ",$contactId" : '')
-                    // ($this->method()== 'PUT') ? ',' . request()-> use
+                    
             
         ];
     }
