@@ -23,11 +23,18 @@ class ContactRequest extends FormRequest
      */
     public function rules()
     {
+        // za [proveru smo koristilidd($this->route()->parametars['contact']->id);
+        $contactId = $this->method() === 'PUT'
+            ? $this->route()->parameters['contact']->id
+            : null;
+
         return [
                  
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'email' => 'required|unique:contacts,email'
+                'email' => 'required|email|unique:contacts,email' .
+                    ($contactId ? ",$contactId" : '')
+                    // ($this->method()== 'PUT') ? ',' . request()-> use
             
         ];
     }
